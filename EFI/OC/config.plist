@@ -34,7 +34,7 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-PLUG-_PR.CPU0</string>
+				<string>SSDT-PLUG-_PR.CPU0.aml</string>
 			</dict>
 		</array>
 		<key>Block</key>
