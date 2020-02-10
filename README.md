@@ -1,7 +1,7 @@
 微星B250M-E OpenCore EFI
 
 ### 当前OC版本
-0.5.4
+0.5.5
 
 ### 机器配置
 
@@ -26,10 +26,10 @@
 7. 加入VirtualSMC的CPU温度传感器，istatus显示正常 (2019-11-25)
 
 ### 系统补丁
-1. lilu.kext   1.3.9 
-2. VirtualSMC.kext  1.0.9 
-3. WhateverGreen.kext 1.3.4
-4. AppleALC.kext   1.4.3
+1. lilu.kext   1.4.1
+2. VirtualSMC.kext  1.1.1 
+3. WhateverGreen.kext 1.3.6
+4. AppleALC.kext   1.4.6
 5. RealtekRTL8111.kext  2.2.2
 6. USBPorts.kext  自己生成
 7. USBPower.kext  自己生成
