@@ -1,7 +1,11 @@
 微星B250M-E OpenCore EFI
 
 ### 当前OC版本
-0.5.5
+0.5.6
+
+### 重要说明 
+
+<font color="red">更新至0.5.6之后，CONFIG文件大改，请务必保存旧的CONFIG文件，默认设置启动项的方法为 呼出启动菜单(win+r),选择对应项, 按 ctrl+enter, 即可设置为默认启动项</font>
 
 ### 机器配置
 
@@ -26,10 +30,10 @@
 7. 加入VirtualSMC的CPU温度传感器，istatus显示正常 (2019-11-25)
 
 ### 系统补丁
-1. lilu.kext   1.4.1
+1. lilu.kext   1.4.7
 2. VirtualSMC.kext  1.1.1 
-3. WhateverGreen.kext 1.3.6
-4. AppleALC.kext   1.4.6
+3. WhateverGreen.kext 1.3.7
+4. AppleALC.kext   1.4.7
 5. RealtekRTL8111.kext  2.2.2
 6. USBPorts.kext  自己生成
 7. USBPower.kext  自己生成
@@ -67,3 +71,4 @@
 3. [XJN](https://blog.xjn819.com)
 4. [宪武](https://github.com/daliansky/OC-little)
 5. [OPENCORE](https://github.com/acidanthera/OpenCorePkg)
+6. [独行秀才](https://shuiyunxc.gitee.io/2020/02/21/instructions/index/)
