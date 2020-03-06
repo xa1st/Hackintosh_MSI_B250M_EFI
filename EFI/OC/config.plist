@@ -3,15 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>#WARNING - 1</key>
-	<string>This is just a sample. Do NOT try loading it.</string>
+	<string>Hackintosh_MSI_B250M_EFI</string>
 	<key>#WARNING - 2</key>
-	<string>Ensure you understand EVERY field before booting.</string>
+	<string>Opencore 0.5.6</string>
 	<key>#WARNING - 3</key>
-	<string>In most cases recommended to use Sample.plist</string>
+	<string>https://del.pub/post/msi_b250_oc_efi.html</string>
 	<key>#WARNING - 4</key>
-	<string>Use SampleFull.plist for end of life models: 2011 and older.</string>
-	<key>#WARNING - 5</key>
-	<string>https://docs.google.com/spreadsheets/d/1kGFz3_kp5xCDRRQpfnIUOvbiHXTmxEgyx97u73ImXXE/edit#gid=0</string>
+	<string>2020/03/06</string>
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
@@ -536,7 +534,8 @@
 	<key>Misc</key>
 	<dict>
 		<key>BlessOverride</key>
-		<array/>
+		<array>
+		</array>
 		<key>Boot</key>
 		<dict>
 			<key>HibernateMode</key>
@@ -554,7 +553,7 @@
 			<key>PollAppleHotKeys</key>
 			<true/>
 			<key>ShowPicker</key>
-			<true/>
+			<false/>
 			<key>TakeoffDelay</key>
 			<integer>0</integer>
 			<key>Timeout</key>
