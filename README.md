@@ -1,11 +1,15 @@
 微星B250M-E OpenCore EFI
 
 ### 当前OC版本
-0.5.6
+0.5.7
 
 ### 重要说明 
 
-<font color="red">更新至0.5.6之后，CONFIG文件大改，请务必保存旧的CONFIG文件，默认设置启动项的方法为 呼出启动菜单(win+r),选择对应项, 按 ctrl+enter, 即可设置为默认启动项</font>
+<font color="red">更新至0.5.7之后，CONFIG文件大改，请务必保存旧的CONFIG文件，默认设置启动项的方法为 呼出启动菜单(win+r),选择对应项, 按 ctrl+enter, 即可设置为默认启动项</font>
+
+### 当前支持
+
+已经可以支持10.15.4 (19E266)
 
 ### 机器配置
 
@@ -21,7 +25,7 @@
 
 ### 实现功能
 
-1. 10.15.2 除了快捷键都应该算是OK了
+1. 10.15.4 除了快捷键都应该算是OK了
 2. SSD已内置，网卡也已内置
 3. 4K硬解也已OK
 4. 声卡仿冒成功，基本完美识别，可以识别前后也可以识别显示器的HDMI
@@ -30,13 +34,15 @@
 7. 加入VirtualSMC的CPU温度传感器，istatus显示正常 (2019-11-25)
 
 ### 系统补丁
-1. lilu.kext   1.4.7
+1. lilu.kext   1.4.3
 2. VirtualSMC.kext  1.1.1 
 3. WhateverGreen.kext 1.3.7
-4. AppleALC.kext   1.4.7
+4. AppleALC.kext   1.4.8
 5. RealtekRTL8111.kext  2.2.2
 6. USBPorts.kext  自己生成
 7. USBPower.kext  自己生成
+8. RtWlanU.kext   原生无线网卡驱动
+9. RtWlanU1827.kext 指定无线网卡驱动
 
 ### DSDT
 1. SSDT-no-EC.aml   禁用ECO

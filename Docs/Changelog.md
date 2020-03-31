@@ -1,5 +1,121 @@
 OpenCore Changelog
 ==================
+
+#### v0.5.7
+- Added TimeMachine detection to picker
+- Added early preview version of OpenCanopy
+- Fixed FS discovery on NVMe with legacy drivers
+- Added `DirectGopCacheMode` option for FB cache policy
+- Added `KeyFiltering` option to workaround buggy KB drivers
+- Added tool and custom entry separation in audio assistant
+- Added `OpenControl` tool to configure full NVRAM access from Shell
+- Added `boot.efi` debug protocol support for 10.15.4+
+- Added `boot.efi` performance logging for 10.15.4+
+- Added `ProtectUefiServices` quirk to fix `DevirtualiseMmio` on Z390
+- Replaced `BOOTCAMP Windows` with `Windows` to match the original
+- Added bundled `OpenShell` originally available as OpenCoreShell
+- Rework `readlabel` utility into `disklabel` with encoding support
+- Renamed `FwRuntimeServices` driver to `OpenRuntime`
+- Renamed `AppleUsbKbDxe` driver to `OpenUsbKbDxe`
+- Update builtin firmware
+- Fixed `PowerTimeoutKernelPanic` on 10.15.4
+- Fixed 4K section alignment in `OpenRuntime` to fix Linux booting
+
+#### v0.5.6
+- Various improvements to builtin text renderer
+- Fixed locating DMG recovery in APTIO IV firmwares on FAT32
+- Fixed loading DMG recovery in APTIO IV firmwares on FAT32
+- Removed `AvoidHighAlloc` quirk due to removed I/O over 4GB
+- Moved `ConsoleMode`, `Resolution` options to `Output` section
+- Moved console-related UEFI quirks to `Output` section
+- Replaced `ConsoleControl` and `BuiltinTextRenderer` with `TextRenderer`
+- Removed `ConsoleBehaviourOs` and `ConsoleBehaviourUi`
+- Fixed providing ConsoleOutHandle GOP when running from Shell
+- Added `PickerAttributes` option to colour picker
+- Added `ProtectSecureBoot` option through FwRuntimeServices
+- Replaced `RequireVault` and `RequireSignature` with `Vault`
+- Added `BootKicker` tool to support launching Apple BootPicker
+- Added BootPicker support as an external UI in OC through `PickerMode`
+- Added `DirectGopRendering` option to use direct GOP output
+- Multiple memory corruption and performance fixes for PNG support
+- Fixed `DefaultBackgroundColor` variable handling
+- Added `HideAuxiliary` and `Auxiliary` options
+- Fixed picker timeout and log timestamps for VMware
+- Fixed NULL parent DeviceHandle for launched tools
+- Added bundled HiiDatabase driver for very old firmwares
+- Added SSE2 support in memory intrinsics for better performance
+- Improved ACPI PM timer CPU frequency calculation performance
+- Improved LapicKernelPanic compatibility with newer macOS versions
+- Fixed drivers starting with `#` not being skipped
+- Added audio support through AudioDxe with optional boot chime
+- Added VoiceOver accessability support in boot.efi for 10.13+
+- Added `PickerAudioAssist` option for audio assistance in picker
+- Added `HdaCodecDump.efi` tool in default package
+- Added legacy AudioDxe and Microsoft namespaces to Reset NVRAM
+- Merged `OcSupportPkg` with `OpenCorePkg` for easier bisection
+- Disabled warnings in release versions of NVMe and XHCI drivers
+
+#### v0.5.5
+- Fixed CPU bus ratio calculation for Nehalem and Westmere
+- Fixed CPU package calculation on MacPro5,1 and similar
+- Improved OpenCore rerun detection for new versions
+- Fixed loading picker on boot failure when it is hidden
+- Added PMC ACPI sample for 300-series chipsets
+- Improved driver connection performance on APTIO IV
+- Fixed boot option saving in LogoutHook.command
+- Added support for OEM information in `ExposeSensitiveData`
+- Improved `SanitiseClearScreen` to avoid mode switching
+- Replaced `SupportsCsm` with `AdviseWindows` enabling UEFI mode
+- Fixed issues with default boot path selection on some boards
+- Update builtin firmware versions
+- Fixed `AdviseWindows` not setting `FirmwareFeatures` in NVRAM
+- Added `TakeoffDelay` option for improved action hotkey support
+- Added Mac GOP support to `ProvideConsoleGop` quirk
+- Added experimental `BuiltinTextRenderer` boot option
+- Added `DummyPowerManagement` kernel quirk to disable CPU PM
+
+#### v0.5.4
+- Added Enter key handling in boot menu for quick proceed
+- Update builtin firmware versions
+- Bundled FwRuntimeServices driver with OpenCore
+- Allowed writing to non-volatile variables with disabled write
+- Fixed microcode reading on Intel CPUs
+- Fixed SMBIOS Type4 External Clock values
+- Improved Windows compatibility on some setups (acidanthera/bugtracker#614)
+- Added `SupportsCsm` and option in `PlatformInfo/Generic`
+- Added `OSInfo` protocol support
+- Added `SignalAppleOS` `Booter` quirk to enable IGPU on Macs in other OS
+- Added `AppleSmcIo`protocol support (replaces `VirtualSmc` UEFI driver)
+- Added `AuthRestart` security property for VirtualSMC authenticated restart
+- Fixed input protocol initialisation on VMware fusion
+- Added arrow key handling in boot menu
+- FileVault 2-like key input is now the only supported input in boot menu
+- Fixed 5 second delay when exiting Shell to OpenCore Picker
+- Added default boot option update and `AllowSetDefault` `Security` option
+- Fixed CPU package detection on configurations with multiple CPUs
+- Bundled CleanNvram and VerifyMsrE2 tools for debugging
+- Added screen clearing after choosing boot entry in picker
+- Added `WriteFlash` NVRAM option to enable writing variables in `Add`
+- Added `LegacyOverwrite` NVRAM option to allow overwriting variables by nvram.plist
+- Added `AppleXcpmForceBoost` kernel quirk to maximise select Xeon performance
+- Bundled NvmExpressDxe and XhciDxe drivers for platforms that need them
+- Added `IncreasePciBarSize` kernel quirk for select platforms with PCI space issues
+
+#### v0.5.3
+- Update builtin firmware versions
+- Fixed interpreting letters in boot menu
+- Fixed timeout abortion with PollAppleHotKeys quirk
+- Fixed rare kext injection failure due to plist-only kext in prelinkedkernel
+- Fixed error reporting for dmg loading
+- Added various debugging improvements
+- Added new crypto stack resulting in vault key format changes
+- Added `UnblockFsConnect` UEFI quirk to fix missing filesystems on some laptops
+- Added `RequestBootVarFallback` UEFI quirk to circumvent firmware boot option issues
+- Added `ThirdPartyDrives` kernel quirk fixing SSD trim and 10.15 SATA hibernation (thx @lvs1974)
+- Removed `ThirdPartyTrim` kernel quirk in favour of `ThirdPartyDrives`
+- Added Intel Xeon E5 (Broadwell-EP) support (thx @crazyi)
+- Switched to edk2-stable201911, which is now the minimum supportd EDK II version
+
 #### v0.5.2
 - Fixed `MinKernel` and `MaxKernel` logic (thx @dhinakg, @reitermarkus)
 - Fixed ASSERT when booting non-Apple OSes without arguments from the DEBUG version
