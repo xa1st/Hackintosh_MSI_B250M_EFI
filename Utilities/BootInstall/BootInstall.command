@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Install booter on physical disk.
+
 cd "$(dirname "$0")"
 diskutil list
 echo "Enter disk number to install to:"
@@ -21,12 +23,13 @@ then
 fi
 
 # Write MBR
-sudo fdisk -f boot0af -u /dev/rdisk${N}
+sudo fdisk -f boot0 -u /dev/rdisk${N}
 
 diskutil umount disk${N}s1
 sudo dd if=/dev/rdisk${N}s1 count=1  of=origbs
 cp -v boot1f32 newbs
 sudo dd if=origbs of=newbs skip=3 seek=3 bs=1 count=87 conv=notrunc
+dd if=/dev/random of=newbs skip=496 seek=496 bs=1 count=14 conv=notrunc
 sudo dd if=newbs of=/dev/rdisk${N}s1
 diskutil mount disk${N}s1
 
