@@ -1,7 +1,7 @@
 微星B250M-E OpenCore EFI
 
 ### 当前OC版本
-0.5.8
+0.5.9
 
 ### 重要说明 
 
@@ -11,7 +11,7 @@
 
 ### 当前支持
 
-已经可以支持10.15.4 (19E287)
+已经可以支持10.15.5 (19F101)
 
 ### 机器配置
 
@@ -27,7 +27,7 @@
 
 ### 实现功能
 
-1. 10.15.4 除了快捷键都应该算是OK了
+1. 10.15.5 除了快捷键都应该算是OK了
 2. SSD已内置，网卡也已内置
 3. 4K硬解也已OK
 4. 声卡仿冒成功，基本完美识别，可以识别前后也可以识别显示器的HDMI
@@ -41,12 +41,12 @@
 3. AudioDxe.efi       开机音乐
 
 ### 系统补丁
-1. lilu.kext   1.4.4
-2. VirtualSMC.kext  1.1.3
-3. WhateverGreen.kext 1.3.9
-4. AppleALC.kext   1.4.9
+1. lilu.kext   1.4.5
+2. VirtualSMC.kext  1.1.4
+3. WhateverGreen.kext 1.4.0
+4. AppleALC.kext   1.50
 5. RealtekRTL8111.kext  2.2.2
-6. USBPorts.kext  自己生成
+6. USBPorts.kext  自己生成 (如果出现U口失灵，删除他自己做)
 7. USBPower.kext  自己生成
 8. RtWlanU.kext   原生无线网卡驱动
 9. RtWlanU1827.kext 指定无线网卡驱动
