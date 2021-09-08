@@ -1,9 +1,11 @@
 微星B250M-E  / B250M迫击炮 OpenCore EFI
 
 ### 当前OC版本
-0.6.3
+0.7.3
 
 ### 重要说明 
+
+<font color="red">更新至0.7.3之后，CONFIG文件结构又变了，务必存好0.7.2CONFIG文件</font>
 
 <font color="red">更新至0.5.7之后，CONFIG文件大改，请务必保存旧的CONFIG文件，默认设置启动项的方法为 呼出启动菜单(win+r),选择对应项, 按 ctrl+enter, 即可设置为默认启动项</font>
 
@@ -11,7 +13,7 @@
 
 ### 当前支持
 
-已经可以支持macOS Big Sur 11.0.1 (20B29)
+目前本人机器macOS Big Sur 11.5.1 (20G80)
 
 ### 机器配置
 
@@ -43,17 +45,17 @@
 3. AudioDxe.efi       开机音乐
 
 ### 系统补丁
-1. [lilu.kext](https://github.com/acidanthera/OpenCorePkg)   1.4.9
-2. [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/)  1.1.8
-3. [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen) 1.4.4
-4. [AppleALC.kext](https://github.com/acidanthera/AppleALC)   1.5.4
-5. [IntelMausi](https://github.com/acidanthera/IntelMausi)  1.0.4
+1. [lilu.kext](https://github.com/acidanthera/OpenCorePkg)   1.6.4
+2. [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/)  1.2.7
+3. [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen) 1.5.3
+4. [AppleALC.kext](https://github.com/acidanthera/AppleALC)   1.6.4
+5. [IntelMausi](https://github.com/acidanthera/IntelMausi)  1.0.7
 6. [RtWlanU.kext + RtWlanU1827.kext](https://github.com/chris1111/Wireless-USB-Adapter-Clover)   无线网卡驱动
 7. USBPorts.kext  自己生成 (如果出现U口失灵，删除他自己做)
 
 ### DSDT
-1. SSDT-EC-USBX.aml   EC控制器
-2. SSDT-PLUG.aml  CPU电源管理
+1. SSDT-EC.aml   EC控制器
+2. SSDT-PLUG.aml  CPU电源管理(节能4项)
 3. SSDT-NVME.aml  NVME支持
 
 ### 需要自己动手的
@@ -67,6 +69,13 @@
 
 2. 如果不想升级BIOS，可以阅读[https://blog.xjn819.com/?p=543](https://blog.xjn819.com/?p=543)此文中第2部分CONFIG.PLIST中红字部分即可解决
 3. 本包内所含的config.plist中没有三码，请务必添加自己的3码后再进行使用
+
+### 其他说明
+调试模式: NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> boot-args 中加入 -v
+SIP设置: NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config
+
+#### 0x00000000 - 打开
+#### 0xE7030000 - 关闭
 
 ### 遗留问题
 
