@@ -75,7 +75,7 @@
 #### 调试模式开启关闭:
 NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> boot-args 中加入 -v
 
-####SIP设置: 
+#### SIP设置: 
 
 NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config
 
