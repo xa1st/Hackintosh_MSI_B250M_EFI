@@ -71,8 +71,13 @@
 3. 本包内所含的config.plist中没有三码，请务必添加自己的3码后再进行使用
 
 ### 其他说明
-调试模式: NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> boot-args 中加入 -v
-SIP设置: NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config
+
+#### 调试模式开启关闭:
+NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> boot-args 中加入 -v
+
+####SIP设置: 
+
+NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config
 
 #### 0x00000000 - 打开
 #### 0xE7030000 - 关闭
@@ -86,8 +91,8 @@ SIP设置: NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config
 
 1. 本EFI只适用微星B250M-E，同型号的B250M-F / B250M PRO (包括VHD所有) / B250M NANO 都需要单独仿冒声卡，其它没有什么问题
 2. 因为是6代U，所以仿冒的机型为 IMAC17,1，如果修改该值，请配合修改 仿冒的显卡和声卡ID
-3. 因为在config.plist中设置了交换command和alt,所以呼出OC菜单为 win+r
-4. 其它想好再说
+3. 换键关闭，所以从1.7.0之后，呼出菜单键变回alt+r
+4. 如果要进recovery，在呼出菜单后按空格再按回车即可出现
 
 ### 对应的工具
 1. [Hackintool / 俗称的“瑞士军刀” / https://github.com/headkaze/Hackintool](https://github.com/headkaze/Hackintool)
