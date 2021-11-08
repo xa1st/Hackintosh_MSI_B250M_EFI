@@ -1,43 +1,32 @@
 微星B250M-E  / B250M迫击炮 OpenCore EFI
 
 ### 当前OC版本
-0.7.3
+0.7.5
 
 ### 重要说明 
-
-<font color="red">更新至0.7.3之后，CONFIG文件结构又变了，务必存好0.7.2CONFIG文件</font>
-
-<font color="red">更新至0.5.7之后，CONFIG文件大改，请务必保存旧的CONFIG文件，默认设置启动项的方法为 呼出启动菜单(win+r),选择对应项, 按 ctrl+enter, 即可设置为默认启动项</font>
 
 <font color="red">CONFIG文件请务必使用XCODE或者ProperTree编辑，请千万不要用Oc Configuretor任何版本进行修改....</font>
 
 ### 当前支持
 
-目前本人机器macOS Big Sur 11.5.1 (20G80)
+目前已支持 MACOS 12.1
 
 ### 机器配置
 
-1. CPU: I5-6500 
+1. CPU：I5-6500 
 2. 内存：金士顿 DDR4 2400 8g 普条 x 2
 3. 显卡：HD530(集显)
-4. 主板：[微星B250M-E](https://cn.msi.com/Motherboard/B250M-E "官网链接")
-   目前已更换为 [B250M迫击炮](https://cn.msi.com/Motherboard/B250M-MORTAR "官网链接")，性质相同
-   方法： 
-5. 声卡：ALC887(实际上探测为 Realtek ALC888B (0x0887) )，仿冒ID为40  /  迫击炮为ALC889，仿冒ID为1 
-6. 硬盘: 雷克沙512M SSD M.2 2280(需升级最新版本BIOS才可识别), 西数1T硬盘
-7. 键盘: 达尔优DK100
-8. 鼠标: DELL MS 116 
-9. 网卡：板载 RTL8111H / TP-LINK TL-WN725N V2 / COMFAST CF-812AC 
+4. 主板：[微星B250M-E](https://cn.msi.com/Motherboard/B250M-E "官网链接")，目前已更换为 [B250M迫击炮](https://cn.msi.com/Motherboard/B250M-MORTAR "官网链接")，性质相同
+5. 声卡：ALC887(实际上探测为 Realtek ALC888B (0x0887) )，仿冒ID为40  /  迫击炮为ALC889，仿冒ID为16
+6. 硬盘：雷克沙512M SSD M.2 2280(需升级最新版本BIOS才可识别), 西数1T硬盘
+7. 键盘：达尔优DK100
+8. 鼠标：DELL MS 116 
+9. 网卡：BCM943224PCIEBT2
 
 ### 实现功能
 
-1. 11.0.1 除了快捷键都应该算是OK了
-2. SSD已内置，网卡也已内置
-3. 4K硬解也已OK
-4. 声卡仿冒成功，基本完美识别，可以识别前后也可以识别显示器的HDMI
-5. 原生电源管理(节能5项)
-6. USB电源管理
-7. 加入VirtualSMC的CPU温度传感器，istatus显示正常 (2019-11-25)
+1. 声卡仿冒可以是1，16，17，23
+2. 原生电源管理(节能5项)
 
 ### 内核驱动
 1. OpenRuntime.efi    核心驱动
@@ -45,17 +34,19 @@
 3. AudioDxe.efi       开机音乐
 
 ### 系统补丁
-1. [lilu.kext](https://github.com/acidanthera/OpenCorePkg)   1.6.4
+1. [lilu.kext](https://github.com/acidanthera/OpenCorePkg)   1.5.7
 2. [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/)  1.2.7
-3. [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen) 1.5.3
-4. [AppleALC.kext](https://github.com/acidanthera/AppleALC)   1.6.4
+3. [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen) 1.5.5
+4. [AppleALC.kext](https://github.com/acidanthera/AppleALC)   1.6.6
 5. [IntelMausi](https://github.com/acidanthera/IntelMausi)  1.0.7
-6. [RtWlanU.kext + RtWlanU1827.kext](https://github.com/chris1111/Wireless-USB-Adapter-Clover)   无线网卡驱动
+6. ~~[RtWlanU.kext + RtWlanU1827.kext](https://github.com/chris1111/Wireless-USB-Adapter-Clover)   无线网卡驱动~~(已更换网卡，但是旧的方法依旧有效)
 7. USBPorts.kext  自己生成 (如果出现U口失灵，删除他自己做)
+7. [AirportBrcmFixup.kext](https://github.com/acidanthera/AirportBrcmFixup) 这是11.5以上的旧版本博通卡的驱动 2.1.3
+7. [BlueToolFixup.kext](https://github.com/acidanthera/BrcmPatchRAM) 2.6.1. MACOS12的蓝牙支持补丁
 
 ### DSDT
 1. SSDT-EC.aml   EC控制器
-2. SSDT-PLUG.aml  CPU电源管理(节能4项)
+2. SSDT-PLUG.aml  CPU电源管理(节能5项)
 3. SSDT-NVME.aml  NVME支持
 
 ### 需要自己动手的
@@ -64,8 +55,8 @@
 
 ### 非常重要
 1. 本EFI已经在BIOS关闭了Fast Boot / CFG Lock / VT-d / CSM，请配合食用，
-  （若BIOS里没有CFG LOCK，请升级一下[https://cn.msi.com/Motherboard/support/B250M-E](https://cn.msi.com/Motherboard/support/B250M-E)
-**   !!! 刷BIOS有风险，万万不可断电
+    （若BIOS里没有CFG LOCK，请升级一下[https://cn.msi.com/Motherboard/support/B250M-E](https://cn.msi.com/Motherboard/support/B250M-E)
+    **   !!! 刷BIOS有风险，万万不可断电
 
 2. 如果不想升级BIOS，可以阅读[https://blog.xjn819.com/?p=543](https://blog.xjn819.com/?p=543)此文中第2部分CONFIG.PLIST中红字部分即可解决
 3. 本包内所含的config.plist中没有三码，请务必添加自己的3码后再进行使用

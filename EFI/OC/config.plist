@@ -3,20 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>#VERSION</key>
-	<string>MSI-B250M-MORTAR V1.7.0</string>
+	<string>Hackintosh_MSI_B250M_EFI_OC0.7.5 V1.7.5</string>
 	<key>#COMMIT</key>
-	<string>BASED BY OPENCORE 0.7.3</string>
+	<string>BASED BY OPENCORE 0.7.5</string>
 	<key>#URL</key>
 	<string>https://del.pub/macos/msi_b250m_oc_efi.html</string>
 	<key>#DATE</key>
-	<string>2021.09.08</string>
+	<string>2021.11.08</string>
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>My custom DSDT</string>
+				<string>禁用EC</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -24,7 +24,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>开启节能四项</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -32,7 +32,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string></string>
+				<string>NVME外置变内置</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -246,7 +246,7 @@
 			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 			<dict>
 				<key>layout-id</key>
-				<data>AQAAAA==</data>
+				<integer>16</integer>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
@@ -363,7 +363,7 @@
 				<key>BundlePath</key>
 				<string>USBPorts.kext</string>
 				<key>Comment</key>
-				<string>USB ports configuration</string>
+				<string>USB定制</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -379,17 +379,17 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>RtWlanU.kext</string>
+				<string>AirportBrcmFixup.kext</string>
 				<key>Comment</key>
-				<string>TPLINK WN725N WIFI - 1</string>
+				<string>博通网卡驱动</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/RtWlanU</string>
+				<string>Contents/MacOS/AirportBrcmFixup</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>15.0.0</string>
+				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -397,17 +397,17 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>RtWlanU1827.kext</string>
+				<string>AirportBrcmFixup.kext/Contents/PlugIns/AirPortBrcmNIC_Injector.kext</string>
 				<key>Comment</key>
-				<string>TPLINK WN725N WIFI - 2</string>
+				<string>BCM93224BT2</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/RtWlanU1827</string>
+				<string></string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>15.0.0</string>
+				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -415,35 +415,17 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>SMCProcessor.kext</string>
+				<string>BlueToolFixup.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>macos12蓝牙补丁</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/SMCProcessor</string>
+				<string>Contents/MacOS/BlueToolFixup</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>15.0.0</string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
-				<string>SMCSuperIO.kext</string>
-				<key>Comment</key>
 				<string></string>
-				<key>Enabled</key>
-				<false/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/SMCSuperIO</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string>15.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -735,7 +717,7 @@
 			<key>ExtendBTFeatureFlags</key>
 			<true/>
 			<key>ExternalDiskIcons</key>
-			<true/>
+			<false/>
 			<key>ForceSecureBootScheme</key>
 			<false/>
 			<key>IncreasePciBarSize</key>
@@ -772,8 +754,7 @@
 	<key>Misc</key>
 	<dict>
 		<key>BlessOverride</key>
-		<array>
-		</array>
+		<array/>
 		<key>Boot</key>
 		<dict>
 			<key>ConsoleAttributes</key>
@@ -795,9 +776,9 @@
 			<key>PickerVariant</key>
 			<string>Auto</string>
 			<key>PollAppleHotKeys</key>
-			<false/>
-			<key>ShowPicker</key>
 			<true/>
+			<key>ShowPicker</key>
+			<false/>
 			<key>TakeoffDelay</key>
 			<integer>0</integer>
 			<key>Timeout</key>
@@ -870,7 +851,7 @@
 			<key>PasswordSalt</key>
 			<data></data>
 			<key>ScanPolicy</key>
-			<integer>0</integer>
+			<integer>3080963</integer>
 			<key>SecureBootModel</key>
 			<string>Default</string>
 			<key>Vault</key>
@@ -961,7 +942,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>keepsyms=1</string>
+				<string></string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
@@ -1098,13 +1079,13 @@
 		<key>Audio</key>
 		<dict>
 			<key>AudioCodec</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>AudioDevice</key>
 			<string>PciRoot(0x0)/Pci(0x1f,0x3)</string>
 			<key>AudioOut</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>AudioSupport</key>
-			<false/>
+			<true/>
 			<key>MinimumVolume</key>
 			<integer>20</integer>
 			<key>PlayChime</key>
