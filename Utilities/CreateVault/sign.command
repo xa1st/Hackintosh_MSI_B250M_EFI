@@ -5,12 +5,7 @@ abort() {
   exit 1
 }
 
-cleanup() {
-  echo "Cleaning up keys"
-  rm -rf "${KeyPath}"
-}
-
-if [ ! -x /usr/bin/dirname ] || [ ! -x /bin/chmod ] || [ ! -x /bin/mkdir ] || [ ! -x /usr/bin/openssl ] || [ ! -x /bin/rm ] || [ ! -x /usr/bin/strings ] || [ ! -x /usr/bin/grep ] || [ ! -x /usr/bin/cut ] || [ ! -x /bin/dd ] || [ ! -x /usr/bin/uuidgen ] ; then
+if [ ! -x /usr/bin/dirname ] || [ ! -x /bin/chmod ] || [ ! -x /bin/mkdir ] || [ ! -x /usr/bin/openssl ] || [ ! -x /bin/rm ] || [ ! -x /usr/bin/strings ] || [ ! -x /usr/bin/grep ] || [ ! -x /usr/bin/cut ] || [ ! -x /bin/dd ] ; then
   abort "Unix environment is broken!"
 fi
 
@@ -22,7 +17,7 @@ if [ "$OCPath" = "" ]; then
   OCPath=../../EFI/OC
 fi
 
-KeyPath="/tmp/Keys-$(/usr/bin/uuidgen)"
+KeyPath="${OCPath}/Keys"
 OCBin="${OCPath}/OpenCore.efi"
 RootCA="${KeyPath}/ca.pem"
 PrivKey="${KeyPath}/privatekey.cer"
@@ -49,8 +44,6 @@ if [ ! -x ./RsaTool ] || [ ! -x ./create_vault.sh ]; then
     abort "Failed to find create_vault.sh!"
   fi
 fi
-
-trap cleanup EXIT INT TERM
 
 if [ ! -d "${KeyPath}" ]; then
   /bin/mkdir -p "${KeyPath}" || abort "Failed to create path ${KeyPath}"

@@ -1,15 +1,20 @@
-微星B250M-E  / B250M迫击炮 OpenCore EFI
+微星B250M-E / B250M迫击炮 OpenCore EFI
+
+### 项目地址
+
+[https://github.com/rakiy/Hackintosh_MSI_B250M_EFI](https://github.com/rakiy/Hackintosh_MSI_B250M_EFI)
 
 ### 当前OC版本
-0.7.5
+OpenCore 0.8.0 ([https://github.com/acidanthera/OpenCorePkg](https://github.com/acidanthera/OpenCorePkg))
 
 ### 重要说明 
 
 <font color="red">CONFIG文件请务必使用XCODE或者ProperTree编辑，请千万不要用Oc Configuretor任何版本进行修改....</font>
 
-### 当前支持
+### 自己MACOS版本
 
-目前已支持 MACOS 12.1
+目前是 MACOS 12.3.1 (21E258)
+<!--more-->
 
 ### 机器配置
 
@@ -34,14 +39,14 @@
 3. AudioDxe.efi       开机音乐
 
 ### 系统补丁
-1. [lilu.kext](https://github.com/acidanthera/OpenCorePkg)   1.5.7
-2. [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/)  1.2.7
-3. [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen) 1.5.5
-4. [AppleALC.kext](https://github.com/acidanthera/AppleALC)   1.6.6
+1. [lilu.kext](https://github.com/acidanthera/Lilu)   1.6.0
+2. [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/)  1.2.9
+3. [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen) 1.5.8
+4. [AppleALC.kext](https://github.com/acidanthera/AppleALC)   1.7.1
 5. [IntelMausi](https://github.com/acidanthera/IntelMausi)  1.0.7
 6. ~~[RtWlanU.kext + RtWlanU1827.kext](https://github.com/chris1111/Wireless-USB-Adapter-Clover)   无线网卡驱动~~(已更换网卡，但是旧的方法依旧有效)
 7. USBPorts.kext  自己生成 (如果出现U口失灵，删除他自己做)
-7. [AirportBrcmFixup.kext](https://github.com/acidanthera/AirportBrcmFixup) 这是11.5以上的旧版本博通卡的驱动 2.1.3
+7. [AirportBrcmFixup.kext](https://github.com/acidanthera/AirportBrcmFixup) 这是11.5以上的旧版本博通卡的驱动 2.1.4
 7. [BlueToolFixup.kext](https://github.com/acidanthera/BrcmPatchRAM) 2.6.1. MACOS12的蓝牙支持补丁
 
 ### DSDT
