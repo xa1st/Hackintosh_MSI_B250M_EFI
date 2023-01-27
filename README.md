@@ -105,10 +105,9 @@ NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config
 3. [MaciAml / aml编辑工具 / https://github.com/acidanthera/MaciASL)](https://github.com/acidanthera/MaciASL)
 
 ### 鸣谢
-
 1. [远景论坛](https://bbs.pcbeta.com, '国内黑苹果基地')
 2. [黑果小兵](https://blog.daliansky.net)
 3. [XJN](https://blog.xjn819.com)
 4. [宪武](https://github.com/daliansky/OC-little)
 5. [OPENCORE](https://github.com/acidanthera/OpenCorePkg)
-6. [独行秀才](
+6. [独行秀才](https://shuiyunxc.gitee.io/)
