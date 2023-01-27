@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>#WARNING - 1</key>
-	<string>Hackintosh_MSI_B250M_EFI_OC V1.8.0</string>
+	<string>Hackintosh_MSI_B250M_EFI_OC V1.8.8</string>
 	<key>#WARNING - 2</key>
-	<string>BASED BY OPENCORE 0.8.0</string>
+	<string>BASED BY OPENCORE 0.8.8</string>
 	<key>#WARNING - 3</key>
-	<string>https://del.pub/macos/msi_b250_oc_efi.html</string>
+	<string>https://blog.del.pub/macos/msi_b250_oc_efi.html</string>
 	<key>#WARNING - 4</key>
-	<string>Update 2022.04.22</string>
+	<string>Update 2023.01.27</string>
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
@@ -355,7 +355,7 @@
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>13.0.0</string>
+				<string>8.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -373,7 +373,7 @@
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>15.0.0</string>
+				<string>8.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -391,7 +391,7 @@
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>19.0.0</string>
+				<string>8.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -409,7 +409,7 @@
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>15.0.0</string>
+				<string>8.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -427,7 +427,7 @@
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>15.0.0</string>
+				<string>8.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -805,7 +805,7 @@
 			<key>CustomSMBIOSGuid</key>
 			<false/>
 			<key>DisableIoMapper</key>
-			<false/>
+			<true/>
 			<key>DisableLinkeditJettison</key>
 			<true/>
 			<key>DisableRtcChecksum</key>
@@ -859,6 +859,8 @@
 			<integer>0</integer>
 			<key>HibernateMode</key>
 			<string>None</string>
+			<key>HibernateSkipsPicker</key>
+			<true/>
 			<key>HideAuxiliary</key>
 			<true/>
 			<key>LauncherOption</key>
@@ -924,12 +926,8 @@
 		</array>
 		<key>Security</key>
 		<dict>
-			<key>AllowNvramReset</key>
-			<true/>
 			<key>AllowSetDefault</key>
 			<true/>
-			<key>AllowToggleSip</key>
-			<false/>
 			<key>ApECID</key>
 			<integer>0</integer>
 			<key>AuthRestart</key>
@@ -957,6 +955,33 @@
 		</dict>
 		<key>Serial</key>
 		<dict>
+			<key>Custom</key>
+			<dict>
+				<key>BaudRate</key>
+				<integer>115200</integer>
+				<key>ClockRate</key>
+				<integer>1843200</integer>
+				<key>DetectCable</key>
+				<false/>
+				<key>ExtendedTxFifoSize</key>
+				<integer>64</integer>
+				<key>FifoControl</key>
+				<integer>7</integer>
+				<key>LineControl</key>
+				<integer>3</integer>
+				<key>PciDeviceInfo</key>
+				<data>/w==</data>
+				<key>RegisterAccessWidth</key>
+				<integer>8</integer>
+				<key>RegisterBase</key>
+				<integer>1016</integer>
+				<key>RegisterStride</key>
+				<integer>1</integer>
+				<key>UseHardwareFlowControl</key>
+				<false/>
+				<key>UseMmio</key>
+				<false/>
+			</dict>
 			<key>Init</key>
 			<false/>
 			<key>Override</key>
@@ -975,6 +1000,8 @@
 				<false/>
 				<key>Flavour</key>
 				<string>OpenShell:UEFIShell:Shell</string>
+				<key>FullNvramAccess</key>
+				<false/>
 				<key>Name</key>
 				<string>UEFI Shell</string>
 				<key>Path</key>
@@ -995,6 +1022,8 @@
 				<false/>
 				<key>Flavour</key>
 				<string>MemTest</string>
+				<key>FullNvramAccess</key>
+				<false/>
 				<key>Name</key>
 				<string>memtest86</string>
 				<key>Path</key>
@@ -1015,6 +1044,8 @@
 				<false/>
 				<key>Flavour</key>
 				<string>Auto</string>
+				<key>FullNvramAccess</key>
+				<false/>
 				<key>Name</key>
 				<string>Shutdown</string>
 				<key>Path</key>
@@ -1051,7 +1082,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>-v keepsyms=1</string>
+				<string></string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
@@ -1076,8 +1107,6 @@
 				<string>ForceDisplayRotationInEFI</string>
 			</array>
 		</dict>
-		<key>LegacyEnable</key>
-		<true/>
 		<key>LegacyOverwrite</key>
 		<false/>
 		<key>LegacySchema</key>
@@ -1117,6 +1146,37 @@
 		<true/>
 		<key>CustomMemory</key>
 		<false/>
+		<key>DataHub</key>
+		<dict>
+			<key>ARTFrequency</key>
+			<integer>0</integer>
+			<key>BoardProduct</key>
+			<string>Mac-AA95B1DDAB278B95</string>
+			<key>BoardRevision</key>
+			<data>Bw==</data>
+			<key>DevicePathsSupported</key>
+			<integer>1</integer>
+			<key>FSBFrequency</key>
+			<integer>0</integer>
+			<key>InitialTSC</key>
+			<integer>0</integer>
+			<key>PlatformName</key>
+			<string>platform</string>
+			<key>SmcBranch</key>
+			<data>ajEzOF85AAA=</data>
+			<key>SmcPlatform</key>
+			<data>ajEzOAAAAAA=</data>
+			<key>SmcRevision</key>
+			<data>AkYPAAAS</data>
+			<key>StartupPowerEvents</key>
+			<integer>0</integer>
+			<key>SystemProductName</key>
+			<string>iMac19,1</string>
+			<key>SystemSerialNumber</key>
+			<string>W00000000001</string>
+			<key>SystemUUID</key>
+			<string>00000000-0000-0000-0000-000000000000</string>
+		</dict>
 		<key>Generic</key>
 		<dict>
 			<key>AdviseFeatures</key>
@@ -1139,6 +1199,316 @@
 			<string>C02VFCZVJ1GJ</string>
 			<key>SystemUUID</key>
 			<string>DD00FC99-5644-4954-896A-89E117D18B5A</string>
+		</dict>
+		<key>Memory</key>
+		<dict>
+			<key>DataWidth</key>
+			<integer>64</integer>
+			<key>Devices</key>
+			<array>
+				<dict>
+					<key>AssetTag</key>
+					<string>123456789</string>
+					<key>BankLocator</key>
+					<string>BANK 0</string>
+					<key>DeviceLocator</key>
+					<string>ChannelA-DIMM0</string>
+					<key>Manufacturer</key>
+					<string>Acidanthera</string>
+					<key>PartNumber</key>
+					<string>M00001-8GB</string>
+					<key>SerialNumber</key>
+					<string>AAA000000001</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Speed</key>
+					<integer>2400</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string>BANK 1</string>
+					<key>DeviceLocator</key>
+					<string>ChannelA-DIMM1</string>
+					<key>Manufacturer</key>
+					<string>NO DIMM</string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string></string>
+					<key>Size</key>
+					<integer>0</integer>
+					<key>Speed</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string>123456789</string>
+					<key>BankLocator</key>
+					<string>BANK 2</string>
+					<key>DeviceLocator</key>
+					<string>ChannelB-DIMM0</string>
+					<key>Manufacturer</key>
+					<string>Acidanthera</string>
+					<key>PartNumber</key>
+					<string>M00001-8GB</string>
+					<key>SerialNumber</key>
+					<string>AAA000000002</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Speed</key>
+					<integer>2400</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string>BANK 3</string>
+					<key>DeviceLocator</key>
+					<string>ChannelB-DIMM1</string>
+					<key>Manufacturer</key>
+					<string>NO DIMM</string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string></string>
+					<key>Size</key>
+					<integer>0</integer>
+					<key>Speed</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string>BANK 4</string>
+					<key>DeviceLocator</key>
+					<string>ChannelC-DIMM0</string>
+					<key>Manufacturer</key>
+					<string>NO DIMM</string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string></string>
+					<key>Size</key>
+					<integer>0</integer>
+					<key>Speed</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string>BANK 5</string>
+					<key>DeviceLocator</key>
+					<string>ChannelC-DIMM1</string>
+					<key>Manufacturer</key>
+					<string>NO DIMM</string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string></string>
+					<key>Size</key>
+					<integer>0</integer>
+					<key>Speed</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string>123456789</string>
+					<key>BankLocator</key>
+					<string>BANK 0</string>
+					<key>DeviceLocator</key>
+					<string>ChannelA-DIMM0</string>
+					<key>Manufacturer</key>
+					<string>Acidanthera</string>
+					<key>PartNumber</key>
+					<string>M00001-8GB</string>
+					<key>SerialNumber</key>
+					<string>AAA000000001</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Speed</key>
+					<integer>2400</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string>BANK 1</string>
+					<key>DeviceLocator</key>
+					<string>ChannelA-DIMM1</string>
+					<key>Manufacturer</key>
+					<string>NO DIMM</string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string></string>
+					<key>Size</key>
+					<integer>0</integer>
+					<key>Speed</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string>123456789</string>
+					<key>BankLocator</key>
+					<string>BANK 2</string>
+					<key>DeviceLocator</key>
+					<string>ChannelB-DIMM0</string>
+					<key>Manufacturer</key>
+					<string>Acidanthera</string>
+					<key>PartNumber</key>
+					<string>M00001-8GB</string>
+					<key>SerialNumber</key>
+					<string>AAA000000002</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Speed</key>
+					<integer>2400</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string>BANK 3</string>
+					<key>DeviceLocator</key>
+					<string>ChannelB-DIMM1</string>
+					<key>Manufacturer</key>
+					<string>NO DIMM</string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string></string>
+					<key>Size</key>
+					<integer>0</integer>
+					<key>Speed</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string>BANK 4</string>
+					<key>DeviceLocator</key>
+					<string>ChannelC-DIMM0</string>
+					<key>Manufacturer</key>
+					<string>NO DIMM</string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string></string>
+					<key>Size</key>
+					<integer>0</integer>
+					<key>Speed</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string>BANK 5</string>
+					<key>DeviceLocator</key>
+					<string>ChannelC-DIMM1</string>
+					<key>Manufacturer</key>
+					<string>NO DIMM</string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string></string>
+					<key>Size</key>
+					<integer>0</integer>
+					<key>Speed</key>
+					<integer>0</integer>
+				</dict>
+			</array>
+			<key>ErrorCorrection</key>
+			<integer>3</integer>
+			<key>FormFactor</key>
+			<integer>9</integer>
+			<key>MaxCapacity</key>
+			<integer>68719476736</integer>
+			<key>TotalWidth</key>
+			<integer>64</integer>
+			<key>Type</key>
+			<integer>26</integer>
+			<key>TypeDetail</key>
+			<integer>128</integer>
+		</dict>
+		<key>PlatformNVRAM</key>
+		<dict>
+			<key>BID</key>
+			<string>Mac-AA95B1DDAB278B95</string>
+			<key>FirmwareFeatures</key>
+			<data>dvWP/QgAAAA=</data>
+			<key>FirmwareFeaturesMask</key>
+			<data>f//f/wgAAAA=</data>
+			<key>MLB</key>
+			<string>M0000000000000001</string>
+			<key>ROM</key>
+			<data>ESIzRFVm</data>
+			<key>SystemSerialNumber</key>
+			<string>W00000000001</string>
+			<key>SystemUUID</key>
+			<string>00000000-0000-0000-0000-000000000000</string>
+		</dict>
+		<key>SMBIOS</key>
+		<dict>
+			<key>BIOSReleaseDate</key>
+			<string>10/17/2022</string>
+			<key>BIOSVendor</key>
+			<string>Acidanthera</string>
+			<key>BIOSVersion</key>
+			<string>1916.60.2.0.0</string>
+			<key>BoardAssetTag</key>
+			<string></string>
+			<key>BoardLocationInChassis</key>
+			<string></string>
+			<key>BoardManufacturer</key>
+			<string>Acidanthera</string>
+			<key>BoardProduct</key>
+			<string>Mac-AA95B1DDAB278B95</string>
+			<key>BoardSerialNumber</key>
+			<string>M0000000000000001</string>
+			<key>BoardType</key>
+			<integer>10</integer>
+			<key>BoardVersion</key>
+			<string>iMac19,1</string>
+			<key>ChassisAssetTag</key>
+			<string></string>
+			<key>ChassisManufacturer</key>
+			<string>Acidanthera</string>
+			<key>ChassisSerialNumber</key>
+			<string>W00000000001</string>
+			<key>ChassisType</key>
+			<integer>13</integer>
+			<key>ChassisVersion</key>
+			<string>Mac-AA95B1DDAB278B95</string>
+			<key>FirmwareFeatures</key>
+			<data>dvWP/QgAAAA=</data>
+			<key>FirmwareFeaturesMask</key>
+			<data>f//f/wgAAAA=</data>
+			<key>PlatformFeature</key>
+			<integer>32</integer>
+			<key>ProcessorType</key>
+			<integer>0</integer>
+			<key>SmcVersion</key>
+			<data>Mi40NkYwMTIAAAAAAAAAAA==</data>
+			<key>SystemFamily</key>
+			<string>iMac</string>
+			<key>SystemManufacturer</key>
+			<string>Acidanthera</string>
+			<key>SystemProductName</key>
+			<string>iMac19,1</string>
+			<key>SystemSKUNumber</key>
+			<string></string>
+			<key>SystemSerialNumber</key>
+			<string>W00000000001</string>
+			<key>SystemUUID</key>
+			<string>00000000-0000-0000-0000-000000000000</string>
+			<key>SystemVersion</key>
+			<string>1.0</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -1180,6 +1550,12 @@
 			<integer>50</integer>
 			<key>KeySubsequentDelay</key>
 			<integer>5</integer>
+			<key>PointerDwellClickTimeout</key>
+			<integer>0</integer>
+			<key>PointerDwellDoubleClickTimeout</key>
+			<integer>0</integer>
+			<key>PointerDwellRadius</key>
+			<integer>0</integer>
 			<key>PointerPollMask</key>
 			<integer>-1</integer>
 			<key>PointerPollMax</key>
@@ -1194,7 +1570,7 @@
 		<key>Audio</key>
 		<dict>
 			<key>AudioCodec</key>
-			<integer>0</integer>
+			<integer>3</integer>
 			<key>AudioDevice</key>
 			<string>PciRoot(0x0)/Pci(0x1f,0x3)</string>
 			<key>AudioOutMask</key>
@@ -1224,9 +1600,35 @@
 				<key>Arguments</key>
 				<string></string>
 				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<true/>
+				<key>Path</key>
+				<string>OpenVariableRuntimeDxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>OpenRuntime.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
 				<string>HFS+ Driver</string>
 				<key>Enabled</key>
 				<true/>
+				<key>LoadEarly</key>
+				<false/>
 				<key>Path</key>
 				<string>OpenHfsPlus.efi</string>
 			</dict>
@@ -1236,16 +1638,8 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>OpenRuntime.efi</string>
-			</dict>
-			<dict>
-				<key>Arguments</key>
-				<string></string>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>OpenCanopy.efi</string>
@@ -1256,7 +1650,9 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
 				<key>Path</key>
 				<string>AudioDxe.efi</string>
 			</dict>
@@ -1267,6 +1663,8 @@
 				<string></string>
 				<key>Enabled</key>
 				<false/>
+				<key>LoadEarly</key>
+				<false/>
 				<key>Path</key>
 				<string>OpenPartitionDxe.efi</string>
 			</dict>
@@ -1276,7 +1674,9 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
 				<key>Path</key>
 				<string>OpenUsbKbDxe.efi</string>
 			</dict>
@@ -1286,6 +1686,8 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>UsbMouseDxe.efi</string>
@@ -1297,6 +1699,8 @@
 				<string></string>
 				<key>Enabled</key>
 				<false/>
+				<key>LoadEarly</key>
+				<false/>
 				<key>Path</key>
 				<string>Ps2KeyboardDxe.efi</string>
 			</dict>
@@ -1306,6 +1710,8 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>Ps2MouseDxe.efi</string>
@@ -1317,6 +1723,8 @@
 				<string></string>
 				<key>Enabled</key>
 				<false/>
+				<key>LoadEarly</key>
+				<false/>
 				<key>Path</key>
 				<string>HiiDatabase.efi</string>
 			</dict>
@@ -1326,6 +1734,8 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>NvmExpressDxe.efi</string>
@@ -1337,6 +1747,8 @@
 				<string></string>
 				<key>Enabled</key>
 				<false/>
+				<key>LoadEarly</key>
+				<false/>
 				<key>Path</key>
 				<string>XhciDxe.efi</string>
 			</dict>
@@ -1346,6 +1758,8 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>ExFatDxe.efi</string>
@@ -1357,6 +1771,8 @@
 				<string></string>
 				<key>Enabled</key>
 				<false/>
+				<key>LoadEarly</key>
+				<false/>
 				<key>Path</key>
 				<string>CrScreenshotDxe.efi</string>
 			</dict>
@@ -1367,8 +1783,10 @@
 				<string></string>
 				<key>Enabled</key>
 				<false/>
+				<key>LoadEarly</key>
+				<false/>
 				<key>Path</key>
-				<string>ext4_x64.efi</string>
+				<string>Ext4Dxe.efi</string>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -1377,8 +1795,178 @@
 				<string></string>
 				<key>Enabled</key>
 				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>DpcDxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>SnpDxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>MnpDxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>ArpDxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>Dhcp4Dxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>Ip4Dxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>Udp4Dxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>TcpDxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>DnsDxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>HttpDxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>HttpUtilitiesDxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>HttpBootDxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
 				<key>Path</key>
 				<string>OpenLinuxBoot.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>ResetNvramEntry.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>ToggleSipEntry.efi</string>
 			</dict>
 		</array>
 		<key>Input</key>

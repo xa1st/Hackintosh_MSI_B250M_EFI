@@ -5,7 +5,8 @@
 [https://github.com/rakiy/Hackintosh_MSI_B250M_EFI](https://github.com/rakiy/Hackintosh_MSI_B250M_EFI)
 
 ### 当前OC版本
-OpenCore 0.8.0 ([https://github.com/acidanthera/OpenCorePkg](https://github.com/acidanthera/OpenCorePkg))
+
+OpenCore 0.8.8 ([https://github.com/acidanthera/OpenCorePkg](https://github.com/acidanthera/OpenCorePkg))
 
 ### 重要说明 
 
@@ -13,7 +14,7 @@ OpenCore 0.8.0 ([https://github.com/acidanthera/OpenCorePkg](https://github.com/
 
 ### 自己MACOS版本
 
-目前是 MACOS 12.3.1 (21E258)
+目前是 MACOS 12.6.2 (21G320)
 <!--more-->
 
 ### 机器配置
@@ -34,34 +35,39 @@ OpenCore 0.8.0 ([https://github.com/acidanthera/OpenCorePkg](https://github.com/
 2. 原生电源管理(节能5项)
 
 ### 内核驱动
+
 1. OpenRuntime.efi    核心驱动
-2. HFSPlus.efi        支持HFS格式的驱动
+2. OpenHFSPlus.efi        支持HFS格式的驱动
 3. AudioDxe.efi       开机音乐
 
 ### 系统补丁
-1. [lilu.kext](https://github.com/acidanthera/Lilu)   1.6.0
-2. [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/)  1.2.9
-3. [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen) 1.5.8
-4. [AppleALC.kext](https://github.com/acidanthera/AppleALC)   1.7.1
+
+1. [lilu.kext](https://github.com/acidanthera/Lilu)   1.7.8
+2. [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/)  1.3.0
+3. [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen) 1.6.3
+4. [AppleALC.kext](https://github.com/acidanthera/AppleALC)   1.7.8
 5. [IntelMausi](https://github.com/acidanthera/IntelMausi)  1.0.7
-6. ~~[RtWlanU.kext + RtWlanU1827.kext](https://github.com/chris1111/Wireless-USB-Adapter-Clover)   无线网卡驱动~~(已更换网卡，但是旧的方法依旧有效)
-7. USBPorts.kext  自己生成 (如果出现U口失灵，删除他自己做)
-7. [AirportBrcmFixup.kext](https://github.com/acidanthera/AirportBrcmFixup) 这是11.5以上的旧版本博通卡的驱动 2.1.4
-7. [BlueToolFixup.kext](https://github.com/acidanthera/BrcmPatchRAM) 2.6.1. MACOS12的蓝牙支持补丁
+6. USBPorts.kext  自己生成 (如果出现U口失灵，删除他自己做)
+7. ~~[RtWlanU.kext + RtWlanU1827.kext](https://github.com/chris1111/Wireless-USB-Adapter-Clover)   无线网卡驱动~~(已更换网卡，但是旧的方法依旧有效)
+8. [AirportBrcmFixup.kext](https://github.com/acidanthera/AirportBrcmFixup)  2.1.6  MACOS11.5以上的旧版本博通卡的驱动
+9. [BlueToolFixup.kext](https://github.com/acidanthera/BrcmPatchRAM) 2.6.4    MACOS12的蓝牙支持补丁
 
 ### DSDT
+
 1. SSDT-EC.aml   EC控制器
 2. SSDT-PLUG.aml  CPU电源管理(节能5项)
 3. SSDT-NVME.aml  NVME支持
 
 ### 需要自己动手的
+
 1. 因为原生不支持nvram所以需要工具生成，下载完EFI之后还需要用 LogoutHook来生成nvram，不然无法修改启动项，方法请阅读:[https://blog.xjn819.com/post/opencore-guide.html](https://blog.xjn819.com/post/opencore-guide.html) 3.1 这一节，就2句命令，直接照作即可。
 2. 暂时没有了
 
 ### 非常重要
+
 1. 本EFI已经在BIOS关闭了Fast Boot / CFG Lock / VT-d / CSM，请配合食用，
-    （若BIOS里没有CFG LOCK，请升级一下[https://cn.msi.com/Motherboard/support/B250M-E](https://cn.msi.com/Motherboard/support/B250M-E)
-    **   !!! 刷BIOS有风险，万万不可断电
+   （若BIOS里没有CFG LOCK，请升级一下[https://cn.msi.com/Motherboard/support/B250M-E](https://cn.msi.com/Motherboard/support/B250M-E)
+   **   !!! 刷BIOS有风险，万万不可断电
 
 2. 如果不想升级BIOS，可以阅读[https://blog.xjn819.com/?p=543](https://blog.xjn819.com/?p=543)此文中第2部分CONFIG.PLIST中红字部分即可解决
 3. 本包内所含的config.plist中没有三码，请务必添加自己的3码后再进行使用
@@ -69,6 +75,7 @@ OpenCore 0.8.0 ([https://github.com/acidanthera/OpenCorePkg](https://github.com/
 ### 其他说明
 
 #### 调试模式开启关闭:
+
 NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> boot-args 中加入 -v
 
 #### SIP设置: 
@@ -76,6 +83,7 @@ NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> boot-args 中加入 -v
 NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config
 
 #### 0x00000000 - 打开
+
 #### 0xE7030000 - 关闭
 
 ### 遗留问题
@@ -91,14 +99,16 @@ NVRAM -> 7C436110-AB2A-4BBB-A880-FE41995C9F82 -> csr-active-config
 4. 如果要进recovery，在呼出菜单后按空格再按回车即可出现
 
 ### 对应的工具
+
 1. [Hackintool / 俗称的“瑞士军刀” / https://github.com/headkaze/Hackintool](https://github.com/headkaze/Hackintool)
 2. [ProperTree / 好用的plist编辑器 / https://github.com/corpnewt/ProperTree)](https://github.com/corpnewt/ProperTree)
 3. [MaciAml / aml编辑工具 / https://github.com/acidanthera/MaciASL)](https://github.com/acidanthera/MaciASL)
 
 ### 鸣谢
+
 1. [远景论坛](https://bbs.pcbeta.com, '国内黑苹果基地')
 2. [黑果小兵](https://blog.daliansky.net)
 3. [XJN](https://blog.xjn819.com)
 4. [宪武](https://github.com/daliansky/OC-little)
 5. [OPENCORE](https://github.com/acidanthera/OpenCorePkg)
-6. [独行秀才](https://shuiyunxc.gitee.io/)
+6. [独行秀才](

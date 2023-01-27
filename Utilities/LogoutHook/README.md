@@ -1,12 +1,17 @@
-LogoutHook
-===========
+# LogoutHook
 
-## Installation
-```sudo defaults write com.apple.loginwindow LogoutHook /path/to/LogoutHook.command```
+## Script
 
-or
+### Usage
+```./Launchd.command```
 
-```/path/to/LogoutHook.command install```
+### Installation
+```./Launchd.command install```
 
-## Notes
-`LogoutHook.command` highly depends on macOS `nvram` utility supporting `-x` option, which is unavailable on 10.12 and below. (Our `nvram.mojave` somehow fixes that issue by invoking it instead of system one)
+### Status
+```./Launchd.command status```
+
+Shows non-empty daemon pid only, if installed with default settings.
+
+### Log
+```/var/log/org.acidanthera.nvramhook.launchd/launchd.log```
